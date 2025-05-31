@@ -49,10 +49,10 @@
    python fuckingfast.py
    ```
 
-   or if you want to generate links from **gofile.io**, run:
+   or if you want to generate links from **buzzheavier.com**, run:
 
    ```bash
-   python gofile.py
+   python buzzheavier.py
    ```
 
 3. The script will extract download links in parallel.
