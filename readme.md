@@ -1,10 +1,10 @@
-## 🚀 FuckingFast Batch
+## 🚀 Download URL Generator
 
-**FuckingFast Batch** is a blazing-fast batch download script designed to fetch multiple files in record time. Perfect for users who demand extreme download speed, automation, and simplicity — all in one tool.
+**Download URL Generator** is a powerful script that automatically extracts direct download links from various sources. Ideal for users who need quick, reliable access to actual file URLs — whether for batch downloading, automation, or integration into custom workflows.
 
 ### ⚡ Features
 
-- Ultra-fast parallel downloading
+- Ultra-fast extraction of direct download links
 - Lightweight and easy to use
 - Supports a list of URLs or HTML files via `links.txt`
 
@@ -43,8 +43,16 @@
 
 2. Run the script using:
 
+   if you want to generate links from **fuckingfast.co**, run:
+
    ```bash
    python fuckingfast.py
+   ```
+
+   or if you want to generate links from **gofile.io**, run:
+
+   ```bash
+   python gofile.py
    ```
 
 3. The script will extract download links in parallel.
