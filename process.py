@@ -21,10 +21,16 @@ class Process:
     def _extract_valid_links(self, content):
         tree = HTMLParser(content)
         links = [a.attributes["href"] for a in tree.css("a") if a.attributes.get("href")]
+
         if not links:
             content = content.strip().splitlines()
             links = [line for line in content if line.strip() and "http" in line]
-        return [url for url in links if urlparse(url).netloc in self.allowed_domains]
+
+        def normalize_domain(url):
+            netloc = urlparse(url).netloc
+            return netloc[4:] if netloc.startswith("www.") else netloc
+
+        return [url for url in links if normalize_domain(url) in self.allowed_domains]
 
     def _start_processing(self, urls):
         if not urls:
@@ -32,6 +38,9 @@ class Process:
             return []
 
         download_links = asyncio.run(self._process_links(urls))
+        return self._save_download_links(download_links)
+        
+    def _save_download_links(self, download_links):
         download_links = [link for link in download_links if link]
         total = len(download_links)
         
