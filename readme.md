@@ -55,6 +55,12 @@
    python buzzheavier.py
    ```
 
+   or if you want to generate links from **mediafire.com**, run:
+
+   ```bash
+    python mediafire.py
+   ```
+
 3. The script will extract download links in parallel.
 4. Downloaded files will be saved in `links_output.txt`.
 5. Done.
