@@ -2,6 +2,7 @@ import asyncio
 from urllib.parse import urlparse
 from selectolax.parser import HTMLParser
 import aiohttp
+import os
 
 class Process:
     def __init__(self):
@@ -48,6 +49,7 @@ class Process:
             content = file.read()
             urls = self._extract_valid_links(content)
             
-        download_links = self._start_processing(urls)
-        return download_links
+        self._start_processing(urls)
+        os.system("pause")
+        
 
