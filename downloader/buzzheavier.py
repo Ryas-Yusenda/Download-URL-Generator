@@ -1,16 +1,8 @@
-import re
-import asyncio
-from urllib.parse import urlparse
-import requests
-
 import aiohttp
-from selectolax.parser import HTMLParser
+import asyncio
 
-from process import Process
-
-class Buzzheavier(Process):
+class Buzzheavier:
     def __init__(self):
-        super().__init__() 
         self.allowed_domains = ["buzzheavier.com"]
 
     async def get_direct_link(self, session, download_url: str) -> str | None:
@@ -36,9 +28,3 @@ class Buzzheavier(Process):
             else:
                 print("[!] No hx-redirect found in response headers.")
                 return None
-            
-        return None
-    
-if __name__ == "__main__":
-    buzzheavier =   Buzzheavier()
-    buzzheavier.run()

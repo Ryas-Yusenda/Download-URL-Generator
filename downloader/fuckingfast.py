@@ -1,15 +1,11 @@
 import re
-import asyncio
-from urllib.parse import urlparse
-
 import aiohttp
+import asyncio
 from selectolax.parser import HTMLParser
 
-from process import Process
 
-class FuckingFast(Process):
+class FuckingFast:
     def __init__(self):
-        super().__init__() 
         self.allowed_domains = ["fuckingfast.co"]
 
     async def get_direct_link(self, session, download_url: str) -> str | None:
@@ -33,7 +29,3 @@ class FuckingFast(Process):
                     if match:
                         return match.group()
         return None
-    
-if __name__ == "__main__":
-    fuckingfast = FuckingFast()
-    fuckingfast.run()
